@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <!-- Product Catagories Area Start -->
+        <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+
+                <!-- Single Catagory -->
+                {% for product in products %}
+                    <div class="single-products-catagory clearfix">
+                    <a href="/product-details/?id={{ product.id }}">
+                        <img src="/{{ product.image_two }}" alt="">
+                        <!-- Hover Content -->
+                        <div class="hover-content">
+                            <div class="line"></div>
+                            <p>From ${{ product.price }}</p>
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+                <!-- Single Catagory -->
+
+            </div>
+        </div>
+        <!-- Product Catagories Area End -->
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+
+{% endblock %}

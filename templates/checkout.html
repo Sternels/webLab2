@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cart-table-area section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="checkout_details_area mt-50 clearfix">
+
+                            <div class="cart-title">
+                                <h2>Checkout</h2>
+                            </div>
+
+                            <div>
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <input id="fname" type="text" class="form-control"  value="" placeholder="First Name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <input id="lname" type="text" class="form-control"  value="" placeholder="Last Name" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <input id="mail" type="email" class="form-control"  placeholder="Email" value="" required>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <input id="addr" type="text" class="form-control mb-3"  placeholder="Address" value="" required>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <input id="zip" type="text" class="form-control"  placeholder="Zip Code" value="" required>
+                                    </div>
+
+                                    <div class="col-12 mb-3">
+                                        <textarea id="comment" class="form-control w-100"  cols="30" rows="10" placeholder="Leave a comment about your order"></textarea>
+                                    </div>
+
+
+                                </div>
+                               <div class="cart-btn mt-100">
+                                <button  class="btn amado-btn w-100 chkt-btn">Checkout</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="cart-summary">
+                            <h5>Cart Total</h5>
+                            <ul class="summary-table">
+                                <li><span>delivery:</span> <span>Free</span></li>
+                                <li><span>total:</span> <span class="totalsum">${{ total }}</span></li>
+                            </ul>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

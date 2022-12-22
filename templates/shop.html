@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="shop_sidebar_area">
+
+        <!-- ##### Single Widget ##### -->
+        <div class="widget catagory mb-50">
+            <!-- Widget Title -->
+            <h6 class="widget-title mb-30">Catagories</h6>
+
+            <!--  Catagories  -->
+            <div class="catagories-menu">
+                <ul>
+                    <li class="{% if request.GET.cat == None %}active{% endif %}"><a href="/shop/"><a href="/shop/">All</a></li>
+
+                    {% for cat in categories %}
+                        <li class="{% if request.GET.cat|add:"0" == cat.id %}active{% endif %}"><a href="/shop/?cat={{ cat.id }}">{{ cat.name }}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="amado_product_area section-padding-100">
+        <div class="container-fluid">
+
+
+            <div class="row">
+
+                {% for product in products %}
+                    <div class="col-12 col-sm-6 col-md-12 col-xl-6">
+                        <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="/{{ product.image_one }}" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="/{{ product.image_two }}" alt="">
+                            </div>
+
+                            <!-- Product Description -->
+                            <div class="product-description d-flex align-items-center justify-content-between">
+                                <!-- Product Meta Data -->
+                                <div class="product-meta-data">
+                                    <div class="line"></div>
+                                    <p class="product-price">${{ product.price }}</p>
+                                    <a href="/product-details/?id={{ product.id }}">
+                                        <h6>{{ product.name }}</h6>
+                                    </a>
+                                </div>
+                                <!-- Ratings & Cart -->
+
+                                    <div id="{{ product.id }}" class="cart addtocart-shop">
+                                        <img id="{{ product.id }}" src="/static/img/core-img/cart.png" alt="">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+
+{% endblock %}
